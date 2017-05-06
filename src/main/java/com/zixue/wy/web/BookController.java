@@ -38,14 +38,17 @@ public class BookController {
 	@RequestMapping(value = "/{bookId}/detail", method = RequestMethod.GET)
 	private String detail(@PathVariable("bookId") Long bookId, Model model) {
 		if (bookId == null) {
+			System.out.println(1);
 			return "redirect:/book/list";
 		}
 		Book book = bookService.getById(bookId);
 		if (book == null) {
+			System.out.println(2);
 			return "forward:/book/list";
 		}
 		model.addAttribute("book", book);
-		return "detail";
+		System.out.println(3);
+		return "forward:/book/list";
 	}
 
 	// ajax json
