@@ -1,8 +1,6 @@
 # SSM
 手把手教你整合最优雅SSM框架：SpringMVC + Spring + MyBatis
 
-博客地址：[http://blog.csdn.net/qq598535550/article/details/51703190](http://blog.csdn.net/qq598535550/article/details/51703190)
-
 ---------
 
 > 我们看招聘信息的时候，经常会看到这一点，需要具备SSH框架的技能；而且在大部分教学课堂中，也会把SSH作为最核心的教学内容。
