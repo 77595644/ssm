@@ -272,7 +272,7 @@
 		<!-- 配置MyBaties全局配置文件:mybatis-config.xml -->
 		<property name="configLocation" value="classpath:mybatis-config.xml" />
 		<!-- 扫描entity包 使用别名 -->
-		<property name="typeAliasesPackage" value="com.soecode.lyf.entity" />
+		<property name="typeAliasesPackage" value="com.zixue.wy.entity" />
 		<!-- 扫描sql配置文件:mapper需要的xml文件 -->
 		<property name="mapperLocations" value="classpath:mapper/*.xml" />
 	</bean>
@@ -282,7 +282,7 @@
 		<!-- 注入sqlSessionFactory -->
 		<property name="sqlSessionFactoryBeanName" value="sqlSessionFactory" />
 		<!-- 给出需要扫描Dao接口包 -->
-		<property name="basePackage" value="com.soecode.lyf.dao" />
+		<property name="basePackage" value="com.zixue.wy.dao" />
 	</bean>
 </beans>
 ```
@@ -344,7 +344,7 @@ jdbc.password=
 	http://www.springframework.org/schema/tx
 	http://www.springframework.org/schema/tx/spring-tx.xsd">
 	<!-- 扫描service包下所有使用注解的类型 -->
-	<context:component-scan base-package="com.soecode.lyf.service" />
+	<context:component-scan base-package="com.zixue.wy.service" />
 
 	<!-- 配置事务管理器 -->
 	<bean id="transactionManager"
@@ -402,7 +402,7 @@ jdbc.password=
 	 </bean>
 	 
 	 <!-- 4.扫描web相关的bean -->
-	 <context:component-scan base-package="com.soecode.lyf.web" />
+	 <context:component-scan base-package="com.zixue.wy.web" />
 </beans>
 ```
 
@@ -508,7 +508,7 @@ CREATE TABLE `appointment` (
 
 **Book.java**
 ```java
-package com.soecode.lyf.entity;
+package com.zixue.wy.entity;
 
 public class Book {
 
@@ -525,7 +525,7 @@ public class Book {
 
 **Appointment.java**
 ``` java
-package com.soecode.lyf.entity;
+package com.zixue.wy.entity;
 
 import java.util.Date;
 
@@ -554,7 +554,7 @@ public class Appointment {
 
 **BookDao.java**
 ``` java
-package com.soecode.lyf.dao;
+package com.zixue.wy.dao;
 
 import java.util.List;
 
@@ -592,7 +592,7 @@ public interface BookDao {
 
 **AppointmentDao.java**
 ```java
-package com.soecode.lyf.dao;
+package com.zixue.wy.dao;
 
 import org.apache.ibatis.annotations.Param;
 
@@ -711,7 +711,7 @@ public interface AppointmentDao {
 
 **BaseTest.java**
 ``` java
-package com.soecode.lyf;
+package com.zixue.wy;
 
 import org.junit.runner.RunWith;
 import org.springframework.test.context.ContextConfiguration;
@@ -734,7 +734,7 @@ public class BaseTest {
 
 **BookDaoTest.java**
 ``` java
-package com.soecode.lyf.dao;
+package com.zixue.wy.dao;
 
 import java.util.List;
 
@@ -787,7 +787,7 @@ public class BookDaoTest extends BaseTest {
 
 **AppointmentDaoTest.java**
 ``` java
-package com.soecode.lyf.dao;
+package com.zixue.wy.dao;
 
 import org.junit.Test;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -846,7 +846,7 @@ public class AppointmentDaoTest extends BaseTest {
 
 **AppointStateEnum.java**
 ```java
-package com.soecode.lyf.enums;
+package com.zixue.wy.enums;
 
 /**
  * 使用枚举表述常量数据字典
@@ -889,7 +889,7 @@ public enum AppointStateEnum {
 
 **AppointExecution.java**
 ```java
-package com.soecode.lyf.dto;
+package com.zixue.wy.dto;
 
 import Appointment;
 import AppointStateEnum;
@@ -945,7 +945,7 @@ public class AppointExecution {
 
 **NoNumberException.java**
 ``` java
-package com.soecode.lyf.exception;
+package com.zixue.wy.exception;
 
 /**
  * 库存不足异常
@@ -966,7 +966,7 @@ public class NoNumberException extends RuntimeException {
 
 **RepeatAppointException.java**
 ``` java
-package com.soecode.lyf.exception;
+package com.zixue.wy.exception;
 
 /**
  * 重复预约异常
@@ -987,7 +987,7 @@ public class RepeatAppointException extends RuntimeException {
 
 **AppointException.java**
 ``` java
-package com.soecode.lyf.exception;
+package com.zixue.wy.exception;
 
 /**
  * 预约业务异常
@@ -1012,7 +1012,7 @@ public class AppointException extends RuntimeException {
 
 **BookService.java**
 ``` java
-package com.soecode.lyf.service;
+package com.zixue.wy.service;
 
 import java.util.List;
 
@@ -1055,7 +1055,7 @@ public interface BookService {
 
 **BookServiceImpl**
 ``` java
-package com.soecode.lyf.service.impl;
+package com.zixue.wy.service.impl;
 
 import java.util.List;
 
@@ -1147,7 +1147,7 @@ public class BookServiceImpl implements BookService {
 
 **BookServiceImplTest.java**
 ``` java
-package com.soecode.lyf.service.impl;
+package com.zixue.wy.service.impl;
 
 import static org.junit.Assert.fail;
 
@@ -1188,7 +1188,7 @@ public class BookServiceImplTest extends BaseTest {
 
 **Result.java**
 ``` java
-package com.soecode.lyf.dto;
+package com.zixue.wy.dto;
 
 /**
  * 封装json对象，所有返回结果都使用它
@@ -1227,7 +1227,7 @@ public class Result<T> {
 
 **BookController.java**
 ``` java
-package com.soecode.lyf.web;
+package com.zixue.wy.web;
 
 import java.util.List;
 
